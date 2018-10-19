@@ -1,4 +1,4 @@
-import klusterpy.metric.distance
+from klusterpy.metric.distance import euclidean_dist, manhattan_dist
 
 class AgglomerativeClustering:
     def __init__(self, n_cluster, linkage="single", metric="euclidean"):
@@ -21,6 +21,7 @@ class AgglomerativeClustering:
         elif metric == "manhattan":
             self.__dist_func = distance.manhattan_dist
         else:
+            self.__dist_func = None
             raise ValueError('Distance metric must be one of ["euclidean", "manhattan"]')
 
     def __single_dist(self, c1, c2):

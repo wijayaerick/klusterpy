@@ -10,7 +10,7 @@ class DBSCAN:
             self.__dist_func = manhattan_dist
         else:
             self.__dist_func = None
-            print('metric must be on of ["euclidean", "manhattan"]')        
+            raise ValueError('Distance metric must be one of ["euclidean", "manhattan"]')
     
     def fit(self, data):
         n_rows = len(data)
