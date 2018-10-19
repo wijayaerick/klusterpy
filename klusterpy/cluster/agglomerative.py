@@ -1,7 +1,7 @@
 from klusterpy.metric.distance import euclidean_dist, manhattan_dist
 
 class AgglomerativeClustering:
-    def __init__(self, n_cluster, linkage="single", metric="euclidean"):
+    def __init__(self, n_clusters=2, linkage="single", metric="euclidean"):
         self.n_clusters = n_clusters
         self.labels = []
 
@@ -17,9 +17,9 @@ class AgglomerativeClustering:
             raise ValueError('Linkage must be one of ["single", "complete", "average", "average group"]')
 
         if metric == "euclidean":
-            self.__dist_func = distance.euclidean_dist
+            self.__dist_func = euclidean_dist
         elif metric == "manhattan":
-            self.__dist_func = distance.manhattan_dist
+            self.__dist_func = manhattan_dist
         else:
             self.__dist_func = None
             raise ValueError('Distance metric must be one of ["euclidean", "manhattan"]')
@@ -106,7 +106,7 @@ class AgglomerativeClustering:
                 if x == None:
                     while exist[now]:
                         now += 1
-                    dic[x] = now
+                    dic[label] = now
                     self.labels[i] = now
                     now += 1
                 else:
