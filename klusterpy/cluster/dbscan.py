@@ -26,6 +26,7 @@ class DBSCAN:
             
             c += 1
             self.__grow_cluster(c, i, data, neighbors)
+        return self
     
     def fit_predict(self, data):
         self.fit(data)
@@ -41,8 +42,9 @@ class DBSCAN:
 
     def __grow_cluster(self, c, index, data, neighbors):
         self.labels[index] = c
-        n = 0
-        while n < len(neighbors):
+        i = 0
+        while i < len(neighbors):
+            n = neighbors[i]
             if self.labels[n] == -1:
                 self.labels[n] = c
             elif self.labels[n] == None:
@@ -50,5 +52,5 @@ class DBSCAN:
                 neighbors_of_n = self.__find_neighbors(n, data)
                 if len(neighbors_of_n) >= self.min_pts:
                     neighbors.extend(neighbors_of_n)
-            n += 1
+            i += 1
 
