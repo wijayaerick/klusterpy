@@ -8,4 +8,8 @@ def euclidean_dist(a, b):
 	return sqrt(dist)
 
 def manhattan_dist(x, y):
-    return 0
+	dist = 0
+	for i in range(len(a)):
+		dist += abs(a[i]-b[i])
+	
+	return dist
