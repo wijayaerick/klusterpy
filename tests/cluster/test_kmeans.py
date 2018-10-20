@@ -13,7 +13,7 @@ class TestKMeans(unittest.TestCase):
         del data[4]
         self.data = data
 
-        with open("labels_kmeans_nclust3_ninit10.txt") as f:
+        with open("labels_kmeans_nclust3.txt") as f:
             lines = f.readlines()
         lines = " ".join(lines).split()
 
@@ -23,11 +23,11 @@ class TestKMeans(unittest.TestCase):
         self.n_init = 10
 
     def test_fit_predict(self):
-        labels = KMeans(n_cluster=self.n_cluster, init=self.init, n_init=self.n_init).fit_predict(self.data.values)
+        labels = KMeans(n_cluster=self.n_cluster, init=self.init).fit_predict(self.data.values)
         self.assertEqual(labels, self.test_labels)
     
     def test_predict(self):
-        model = KMeans(n_cluster=self.n_cluster, init=self.init, n_init=self.n_init).fit(self.data.values)
+        model = KMeans(n_cluster=self.n_cluster, init=self.init).fit(self.data.values)
         self.assertEqual(model.predict(self.init), [0, 1, 2])
 
 if __name__ == '__main__':
