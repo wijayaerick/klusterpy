@@ -1,10 +1,13 @@
 # KlusterPy
-KlusterPy is..
-
+KlusterPy is a simple machine learning library that provides clustering algorithm such as 
+[K-Means](https://en.wikipedia.org/wiki/K-means_clustering), 
+[K-Medoids](https://en.wikipedia.org/wiki/K-medoids), 
+[DBSCAN](https://en.wikipedia.org/wiki/DBSCAN), and 
+[Agglomerative Clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering). 
 
 # Dependencies
-numpy, ...
-
+1. NumPy
+2. Python >= 3
 
 # Installation
 ```
@@ -13,9 +16,16 @@ pip install klusterpy
 
 # Example Code
 ```python
-from klusterpy.cluster import KMeans
+from klusterpy.cluster.dbscan import DBSCAN
+from sklearn import datasets
+import numpy as np
+import pandas as pd
 
-bla3...
+iris_data = datasets.load_iris()
+iris_df = pd.DataFrame(data=np.c_[iris_data['data']], columns=iris_data['feature_names'])
+
+dbscan = DBSCAN(epsilon=0.42, min_pts=5).fit(iris_df.values)
+dbscan.labels
 ```
 
 # Contributors
