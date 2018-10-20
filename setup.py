@@ -13,6 +13,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/wijayaerick/klusterpy",
     packages=setuptools.find_packages(),
+    install_requires=['numpy'],
+    python_requires='>=3',
     classifiers=[
         "Intended Audience :: Developers",
         "Intended Audience :: Education",
