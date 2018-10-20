@@ -4,8 +4,8 @@ import numpy as np
 import math, random
 
 class KMeans:
-    def __init__(self, n_cluster, init='k-means++', max_iter=300, tolerance=0.0001):
-        self.n_cluster = n_cluster
+    def __init__(self, n_clusters=2, init='k-means++', max_iter=300, tolerance=0.0001):
+        self.n_clusters = n_clusters
         self.init = init
         if isinstance(init, np.ndarray):
             self.centroids = init
@@ -49,7 +49,7 @@ class KMeans:
         return self.labels
 
     def __init_random(self, data):
-        self.centroids = random.sample(range(len(data)), self.n_cluster)
+        self.centroids = random.sample(range(len(data)), self.n_clusters)
         return self
 
     def __init_kmeans_plus2(self, data):
@@ -60,13 +60,13 @@ class KMeans:
     def __assignment_clustering(self, data):
         n_rows = len(data)
         self.labels = [self.__assign_to_cluster(data[i]) for i in range(n_rows)]
-        self.clusters = [[j for j, x in enumerate(self.labels) if x == i] for i in range(self.n_cluster)]
+        self.clusters = [[j for j, x in enumerate(self.labels) if x == i] for i in range(self.n_clusters)]
         return self
 
     def __assign_to_cluster(self, row):
         min_c = 0
         min_dist = euclidean_dist(row, self.centroids[min_c])
-        for c in range(min_c+1, self.n_cluster):
+        for c in range(min_c+1, self.n_clusters):
             dist = euclidean_dist(row, self.centroids[c])
             if dist < min_dist:
                 min_dist, min_c = dist, c
