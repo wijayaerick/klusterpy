@@ -7,7 +7,7 @@ def euclidean_dist(a, b):
 	
 	return sqrt(dist)
 
-def manhattan_dist(x, y):
+def manhattan_dist(a, b):
 	dist = 0
 	for i in range(len(a)):
 		dist += abs(a[i]-b[i])
