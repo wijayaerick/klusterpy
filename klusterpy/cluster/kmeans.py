@@ -4,7 +4,7 @@ import numpy as np
 import math, random
 
 class KMeans:
-    def __init__(self, n_clusters=2, init='k-means++', max_iter=300, tolerance=0.0001):
+    def __init__(self, n_clusters=2, init='random', max_iter=300, tolerance=0.0001):
         self.n_clusters = n_clusters
         self.init = init
         if isinstance(init, np.ndarray):
@@ -19,7 +19,7 @@ class KMeans:
             elif self.init == 'random':
                 self.__init_random(data)
             else:
-                self.__init_kmeans_plus2(data)
+                raise ValueError('Init must be one of ["k-means++", "random"] or an ndarray')
         self.labels = [None] * len(data)
         
         iteration_count = 1

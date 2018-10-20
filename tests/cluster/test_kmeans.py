@@ -23,11 +23,11 @@ class TestKMeans(unittest.TestCase):
         self.n_init = 10
 
     def test_fit_predict(self):
-        labels = KMeans(n_cluster=self.n_cluster, init=self.init).fit_predict(self.data.values)
+        labels = KMeans(n_clusters=self.n_cluster, init=self.init).fit_predict(self.data.values)
         self.assertEqual(labels, self.test_labels)
     
     def test_predict(self):
-        model = KMeans(n_cluster=self.n_cluster, init=self.init).fit(self.data.values)
+        model = KMeans(n_clusters=self.n_cluster, init=self.init).fit(self.data.values)
         self.assertEqual(model.predict(self.init), [0, 1, 2])
 
 if __name__ == '__main__':
