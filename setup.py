@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Erick Wijaya",
     author_email="wijaya.erick52@gmail.com",
-    description="Python Data Mining Clustering Library",
+    description="Python Machine Learning Clustering Library",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/wijayaerick/klusterpy",
