@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="klusterpy",
-    version="0.0.1",
+    version="0.0.3",
     author="Erick Wijaya",
     author_email="wijaya.erick52@gmail.com",
     description="Python Machine Learning Clustering Library",

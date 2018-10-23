@@ -22,6 +22,7 @@ class KMedoids:
         self.__data = data
         self.__set_data()
         self.__kmedoids_run()
+        self.labels = self.data_clusters_to_labels(self.get_clusters())
         return self
 
     def __kmedoids_run(self):
@@ -148,5 +149,5 @@ class KMedoids:
 
     def fit_predict(self, data):
         self.fit(data)
-        return self.data_clusters_to_labels(self.get_clusters())
+        return self.labels
         
